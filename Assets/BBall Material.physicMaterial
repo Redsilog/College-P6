@@ -9,7 +9,7 @@ PhysicsMaterial:
   m_Name: BBall Material
   serializedVersion: 2
   m_DynamicFriction: 0.2
-  m_StaticFriction: 0.5
-  m_Bounciness: 0.81
-  m_FrictionCombine: 1
-  m_BounceCombine: 1
+  m_StaticFriction: 0.3
+  m_Bounciness: 0.8
+  m_FrictionCombine: 2
+  m_BounceCombine: 3
