@@ -5,16 +5,17 @@ using UnityEngine.SceneManagement;
 public class Formula : MonoBehaviour
 {
     [SerializeField] public float cor;
-    [SerializeField] private Vector3 initialVelocityScene2;
-    private Rigidbody rb;
-    private float highestBounce = 0f;
-    private float startTime;
-    private bool hasLanded = false;
-    private bool isMoving = true;
-    private int stationaryFrames = 0;
-    private float firstBounce = 0;
-    private int highBounce = 1;
-    private bool gameStarted = false;
+    [SerializeField] public Vector3 initialVelocityScene2;
+    public Rigidbody rb;
+    public float highestBounce = 0f;
+    public float startTime;
+    public bool hasLanded = false;
+    public bool isMoving = true;
+    public int stationaryFrames = 0;
+    public float firstBounce = 0;
+    public int highBounce = 1;
+    public bool gameStarted = false;
+    public float fallTime = 0f;
 
     void Start()
 {
@@ -87,7 +88,7 @@ void StartGame()
         {
             if (!hasLanded)
             {
-                float fallTime = Time.time - startTime;
+                fallTime = Time.time - startTime;
                 Debug.Log(gameObject.name + " fell in " + fallTime + " seconds");
                 hasLanded = true;
             }
