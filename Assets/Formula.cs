@@ -1,15 +1,16 @@
 using UnityEngine;
 
-public class FreefallTracker : MonoBehaviour
+public class Formula : MonoBehaviour
 {
+    [SerializeField] public float cor;
     private Rigidbody rb;
     private float highestBounce = 0f;
-    float bounceHeight;
     private float startTime;
     private bool hasLanded = false;
     private bool isMoving = true;
     private int stationaryFrames = 0;
-    [SerializeField] public float cor = 0f;
+    private float firstBounce = 0;
+    private int highBounce = 1;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class FreefallTracker : MonoBehaviour
 
         if (stationaryFrames > 100 && isMoving)
         {
-            Debug.Log(gameObject.name + " highest bounce was: " + bounceHeight + " meters");
+            Debug.Log(gameObject.name + " highest recorded bounce was: " + firstBounce + " meters");
             isMoving = false;
             Destroy(this);
         }
@@ -40,15 +41,20 @@ public class FreefallTracker : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
-        {
+        {   
             if (!hasLanded)
-            {
+            { 
                 float fallTime = Time.time - startTime;
                 Debug.Log(gameObject.name + " fell in " + fallTime + " seconds");
                 hasLanded = true;
             }
 
-            bounceHeight = highestBounce * cor;
+            highestBounce *= cor;
+            if (highBounce == 1)
+                {
+                    firstBounce = highestBounce;
+                    highBounce++;
+                }  
         }
     }
 }
