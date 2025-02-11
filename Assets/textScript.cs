@@ -1,9 +1,9 @@
 using UnityEngine;
 using TMPro;
 
-public class Canvas : MonoBehaviour
+public class textScript : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro bballff, sballff, bballbounce, sballbounce;
+    [SerializeField] private TextMeshProUGUI bballff, sballff, bballbounce, sballbounce;
     private Formula bballFormula, sballFormula;
 
     void Start()

@@ -24,27 +24,24 @@ public class Formula : MonoBehaviour
     rb.isKinematic = true;
     highestBounce = transform.position.y;
 
-    Debug.Log("Press Space to Start Experiment");
-
     if (SceneManager.GetActiveScene().name == "Scene2")
     {
-        rb.linearVelocity = initialVelocityScene2;  // ✅ Use velocity instead of linearVelocity
+        rb.linearVelocity = initialVelocityScene2;
     }
 }
 
 void StartGame()
 {
     gameStarted = true;
-    rb.isKinematic = false;  // ✅ Enable physics
+    rb.isKinematic = false;
     rb.useGravity = true;
     
     if (SceneManager.GetActiveScene().name == "Scene2")
     {
-        rb.linearVelocity = initialVelocityScene2;  // ✅ Reapply velocity when game starts
+        rb.linearVelocity = initialVelocityScene2;
     }
 
     startTime = Time.time;
-    Debug.Log("Game started!");
 }
 
 
